@@ -1,0 +1,29 @@
+body{
+    background-image: url(../Game3/img/avgg.jpg);
+}
+
+.game{
+    color: white;
+    margin-top: 5%;
+    margin-left: 35%;
+    background: linear-gradient(#0039b9, #b12323);
+    width: 11cm;
+    height: 19.5cm;
+    padding-left: 2cm;
+    color: white;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: rgba(32, 32, 34, 0.4) 0px 7px 29px 0px;
+    transition: 2s;
+}
+#image{
+    border-radius: 10px;
+}
+button{
+    padding: 7px;
+    border-radius: 6px;
+    transition: 1s
+}
+button:hover{
+    padding: 12px;
+}

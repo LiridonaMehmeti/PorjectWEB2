@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img/avgg.jpg);
+}
+#container{
+    width: 90%;
+    height: 90%;
+    display: flex;
+}
+h3 a {
+    color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(225, 255, 245),
+      0 0 82px #0fa,
+      0 0 92px rgb(198, 241, 227),
+      0 0 102px rgb(206, 241, 230),
+      0 0 151px rgb(218, 250, 239);
+      border-radius: 6px;
+}
+
+.panel{
+    flex: 1;
+    margin: 5px;
+    border-radius: 50px;
+    background-size: cover;
+    background-position:center ;
+    position: relative;
+    transition: flex .7s ease-in-out;
+    
+}
+.panel>h3{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    color: white;
+    text-shadow: 0 0 3px black  ;
+    opacity: 0;
+    font-size: large;
+}
+a{
+   display: inline-block;
+   margin-top: 20px;
+   padding: 13px 40px;
+   background: #fff;
+   color: #000;
+   font-weight: 600;
+   text-decoration: none;
+   border: 2px solid #fff;
+   transition: 0.5 ease-in-out;
+    
+}
+a:hover{
+    background: transparent;
+    color: #fff;
+}
+
+.active{
+    flex: 10;
+
+}
+.active>h3{
+    opacity: 1;
+}

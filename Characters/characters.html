@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="characters.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $(".toggle").click(function(){
+        $(".table").fadeOut();
+
+      });
+    });
+    $(document).ready(function(){
+      $(".toggle1").click(function(){
+        $(".table").fadeIn();
+
+      });
+    });
+    </script>
+    <style>
+        body{
+            background-image: url(img/avgg.jpg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#"><img src="img/marvelLogo2.png" alt="logo" class="logo"></a>
+        <div class="toggle">
+        Click to hide
+        </div>
+        <div class="toggle1">
+            Click to show
+            </div>
+        <nav>
+        <ul class="navigation">
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Tv Shows</a></li>
+            <li><a href="#">Characters</a></li>
+            <li><a href="#">Games</a></li>
+
+        </ul>
+        </nav>
+    </header>
+    <table class="table">
+        <thead>
+            <th>Character</th>
+            <th><img src="img/ironman.jfif" alt="" class="photo"></th>
+            <th><img src="img/thanos.webp" alt="" class="photo"></th>
+            <th><img src="img/thor.jpg" alt="" class="photo"></th>
+            <th><img src="img/Ultron_EW_Poster.webp" alt="" class="photo"></th>
+            <th><img src="img/spiderman.jpg" alt="" class="photo"></th>
+            <th><img src="img/captainAmercia.webp" alt="" class="photo"></th>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td >Robert Downey jr</td>
+                <td>Josh Brolin</td>
+                <td >Chris Hemsworth</td>
+                <td>James Spader</td>
+                <td >Tom Holland</td>
+                <td >Chris Evans</td>
+                
+
+            </tr>
+            <tr>
+                <td >Character Name</td>
+                <td >Iron Man</td>
+                <td >Thanos</td>
+                <td >Thor</td>
+                <td >Ultron</td>
+                <td >Spider-Man</td>
+                <td >Captain America</td>
+                
+
+            </tr>
+            <tr>
+                <td >Age of character</td>
+                <td >48</td>
+                <td >1,000</td>
+                <td >1,500</td>
+                <td >2 muaj</td>
+                <td >16</td>
+                <td >99</td>
+                
+            </tr>
+            <tr>
+                <td >Screen Time(min)</td>
+                <td >365</td>
+                <td >79</td>
+                <td >290</td>
+                <td >17</td>
+                <td >245</td>
+                <td >242</td>
+                
+            </tr>
+            <tr>
+                <td >First apperance</td>
+                <td >2008</td>
+                <td >2012</td>
+                <td >2011</td>
+                <td >2015</td>
+                <td >2016</td>
+                <td >2011</td>
+                
+            </tr>
+            <tr>
+                <td>Number of movies</td>
+                <td>9</td>
+                <td>4</td>
+                <td>8</td>
+                <td>1</td>
+                <td>6</td>
+                <td>11</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script src="jquery-3.6.3.js"></script>
+
+</html>

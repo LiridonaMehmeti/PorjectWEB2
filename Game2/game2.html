@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game2.css">
+</head>
+<body>
+    <h1>Put the images in the correct box</h1>
+    <section>
+        
+        <div class="choice">
+            <p>Characters</p>
+            <button class="btn" onclick="stop()">Sound off</button>
+            <img src="img/coulsen.webp" alt="" draggable="true" style="width: 100px; height: 100px;">
+            <img src="img/deadpool.webp" alt="" draggable="true" style="width: 100px; height: 100px">
+            <img src="img/ironman.jfif" alt="" draggable="true" style="width: 100px; height: 100px">
+            <img src="img/nickFury.webp" alt="" draggable="true" style="width: 100px; height: 100px">
+            <img src="img/thanos.webp" alt="" draggable="true" style="width: 100px; height: 100px">
+            <img src="img/thor.jpg" alt="" draggable="true" style="width: 100px; height: 100px">
+            <img src="img/Ultron_EW_Poster.webp" alt="" draggable="true" style="width: 100px; height: 100px">
+            <img src="img/Wolverine_(James_'Logan'_Howlett).png" alt="" draggable="true" style="width: 100px; height: 100px">
+
+            <!-- <p draggable="true">Samsung</p>
+            <p draggable="true">Samsung</p>
+            <p draggable="true">Samsung</p>
+            <p draggable="true">Samsung</p>
+            <p draggable="true">Samsung</p> -->
+        </div>
+        <div class="choice">
+            <p>Avengers </p>
+            <button class="btn" onclick="play1(1)">Sound</button>
+        </div>
+        <div class="choice">
+            <p>X-men </p>
+            <button class="btn" onclick="play1(2)">Sound</button>
+        </div>
+        <div class="choice">
+            <p>SH.I.E.L.D </p>
+            <button class="btn " onclick="play1(3)">Sound</button>
+        </div>
+        <div class="choice">
+            <p>Villians </p>
+            <button class="btn" onclick="play1(4)" >Sound</button>
+            
+            <!-- <img src="img/AVENGERS - END GAME - trailer music (Epic version).mp3" alt=""> -->
+        </div>
+    </section>
+    
+    <!-- <audio id="audio2" src="img/AVENGERS - END GAME - trailer music (Epic version).mp3"></audio> -->
+    <script>
+        const audio1 = new Audio();
+        function play1(value){
+            
+            if (value == 1) {
+                audio1.src = "img/avengersmusic.mp3";
+                
+            }else if(value == 2){
+                audio1.src = "img/xmen.mp3";
+            }
+            else if(value == 3){
+                audio1.src = "img/shield.mp3";
+            }
+            else if(value == 4){
+                audio1.src = "img/villians.mp3";
+            };
+            if(audio1.paused){
+                audio1.play();
+            }else{
+                audio1.pause();
+            }
+        }
+        function stop() {
+            audio1.pause();
+        }
+    </script>
+    <script src="game2.js"></script>
+</body>
+</html>

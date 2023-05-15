@@ -1,0 +1,54 @@
+section{
+    width: 1500px;
+    height: 460px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-around;
+}
+h1{
+    text-align: center;
+    color: #fff;
+}
+div{
+    width: 400px;
+    height: 120%;
+    padding: 20px;
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+}
+p{
+    background: red;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    
+}
+.btn{
+    /* margin-left: 40%; */ 
+    width:100%;
+    text-align:center;
+    
+
+    border-width: 4px;
+    border-radius: 35px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:active{
+    font-size: 20px;
+}
+.titulli{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    transform: translate(-50%,50%);
+}
+
+body{
+    background-image: url(img/avgg.jpg);
+}
+

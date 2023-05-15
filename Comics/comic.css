@@ -1,0 +1,13 @@
+body {
+
+	background-image:url("img/img2.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.btn {
+	background-color:rgb(35, 35, 35) !important;
+}

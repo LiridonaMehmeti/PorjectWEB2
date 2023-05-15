@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Guessing Game</title>
+  <link rel="stylesheet" href="game3.css">
+</head>
+<body>
+    <div class="game">
+  <h1>Guess the Image</h1>
+  <img id="image" src="img/1.Iron Man.webp" alt="image to guess">
+  <br>
+  <button onclick="nextImage()">Next Image</button>
+  <p style="font-size: 20px;">Score: <span id="score"></span></p>
+
+  <button id="button1" onclick="checkAnswer('img/1.Iron Man.webp')">Iron Man</button>
+  <button id="button2" onclick="checkAnswer('img/2.Captain America.webp')">Captain America</button>
+  <button id="button3" onclick="checkAnswer('img/3.Thor Odinson.webp')">Thor Odinson</button>
+  <button id="button4" onclick="checkAnswer('img/4.Hulk.webp')">The Hulk</button>
+
+</div>
+  <script>
+    var images = ['img/1.Iron Man.webp', 'img/2.Captain America.webp', 'img/3.Thor Odinson.webp', 'img/4.Hulk.webp'];
+    var currentImage;
+    var score = 0;
+    document.getElementById("score").innerHTML = score;
+    
+    function nextImage() {
+      currentImage = Math.floor(Math.random() * images.length);
+      document.getElementById("image").src = images[currentImage];
+    }
+    
+    function incrementScore() {
+      score++;
+      document.getElementById("score").innerHTML = score;
+    }
+    
+    function checkAnswer(answer) {
+      if (answer == images[currentImage]) {
+        incrementScore();
+        alert("Correct!");
+      } else {
+        alert("Incorrect. Try again!");
+      }
+    }
+    nextImage();
+  </script>
+  
+</body>
+</html>

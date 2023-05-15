@@ -1,0 +1,49 @@
+body{
+    background-image:url(avgg.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: right bottom, top;
+  background-repeat: no-repeat, no-repeat;
+
+}
+ul{
+    list-style-type: none;
+    width: 10.5cm;
+}
+ul li img{
+    width: 10cm;
+    height: 5.5cm;
+    border-radius: 6px;
+    transition: 1s;
+    
+}
+ul li img:hover{
+    width: 11.5cm;
+    height: 6.2cm;
+    border-radius: 6px;
+    box-shadow: rgba(74, 74, 77, 0.4) 0px 7px 29px 0px;
+}
+.Text{
+    width: 25cm;
+    height: 18cm;
+    color: white;
+    background-color:rgba(255, 0, 0, 0.4);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+    border-radius: 10px;
+    padding: 2%;
+    white-space: pre-line;
+}
+.Text pre{
+    white-space: pre-line;
+    font-family: sans-serif;
+    opacity: 85%;
+}
+.Text h1{
+    text-decoration: underline;
+    opacity: 85%;
+}

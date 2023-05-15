@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+  }
+
+*{
+    box-sizing: border-box;
+    
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 200px;
+    z-index: 5;
+}
+.table td, .table th{
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.table th{
+    background-color: darkblue;
+    color: #fff;
+}
+
+.table tbody tr{
+    background-color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.photo{
+    height: 100px;
+    width: 70px;
+}
+
+
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+header .logo{
+    position: relative;
+    max-width: 200px;
+}
+header ul{
+    position: relative;
+    display: flex;
+
+} 
+
+header ul li {
+    list-style: none;
+}
+header ul li a{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 100;
+    margin-left: 40px;
+    text-decoration: none;
+}
+.toggle{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    top: 4cm;
+    left: 0%;
+    transform: translate(50%,50%);
+    font-family: myFirstFont;
+
+}
+.toggle1{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    top: 16.5cm;
+    left: 0%;
+    transform: translate(50%,50%);
+    font-family: myFirstFont;
+}
