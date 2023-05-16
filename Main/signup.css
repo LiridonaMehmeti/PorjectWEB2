@@ -8,7 +8,7 @@ html {
     background: linear-gradient(#0039b9, #b12323);
   }
   
-  .login-box {
+  .signup-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,18 +21,18 @@ html {
     border-radius: 10px;
   }
   
-  .login-box h2 {
+  .signup-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
     text-align: center;
   }
   
-  .login-box .user-box {
+  .signup-box .user-box {
     position: relative;
   }
   
-  .login-box .user-box input {
+  .signup-box .user-box input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -43,7 +43,7 @@ html {
     outline: none;
     background: transparent;
   }
-  .login-box .user-box label {
+  .signup-box .user-box label {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,15 +54,15 @@ html {
     transition: 0.5s;
   }
   
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
+  .signup-box .user-box input:focus ~ label,
+  .signup-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
     color: #0039b9;
     font-size: 12px;
   }
   
-  .login-box form a {
+  .signup-box form a {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -76,7 +76,7 @@ html {
     letter-spacing: 4px;
   }
   
-  .login-box a:hover {
+  .signup-box a:hover {
     background: #b12323;
     color: #fff;
     border-radius: 6px;
@@ -84,8 +84,7 @@ html {
       0 0 100px #03e9f4;
   }
   
-  .login-box a span {
+  .signup-box a span {
     position: absolute;
     display: block;
   }
-  
