@@ -13,7 +13,7 @@
     <div class="box">
         <img class="foto" src="../Main/Comics.png" alt="Marvel Logo">
         <img class="hero1" src="Avengers.png" alt="hero">
-        <a href="../Comics/comic.html" alt="">Check now</a>
+          <a href="../Comics/comic.html" alt="">Check now</a>
     </div>
     <div class="rightbox">
         <img class="foto1" src="../Main/Heores.png" alt="Heroes">
