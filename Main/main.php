@@ -11,20 +11,21 @@
 
 <body>
     <div class="box">
-        <img class="foto" src="../Main/Comics.png" alt="Marvel Logo">
+        <img class="foto" src="/PorjectWEB2/Main/Comics.png" alt="Marvel Logo">
         <img class="hero1" src="Avengers.png" alt="hero">
-          <a href="../Comics/comic.html" alt="">Check now</a>
+        <a href="/PorjectWEB2/Comics/comic.html" alt="">Check now</a>
     </div>
     <div class="rightbox">
-        <img class="foto1" src="../Main/Heores.png" alt="Heroes">
+        <img class="foto1" src="/PorjectWEB2/Main/Heores.png" alt="Heroes">
         <img class="hero1" src="heroooo.jpg" alt="hero">
-        <a href="../Heroes/Wanda.html" target="_blank" alt="">Check now</a>
+        <a href="/PorjectWEB2/Heroes/Wanda.html" target="_blank" alt="">Check now</a>
 
     </div>
     <div class="leftbox">
-        <img class="leftfoto" src="../Main/Movies.png" alt="Movies">
+        <img class="leftfoto" src="/PorjectWEB2/Main/Movies.png" alt="Movies">
         <img class="foto2" src="MarMov.png" alt="hero">
-        <a href="/HTML/1Movie/movie.html" target="_blank" alt="">Check now</a>
+        <a href="/PorjectWEB2/1Movie/movie.html" target="_blank" alt="">Check now</a>
+      
     </div>
     <div class="login-box">
         <form>
@@ -35,6 +36,7 @@
                 <span></span>
                 Log in
             </a>
+
         </form>
     </div>
 </body>
