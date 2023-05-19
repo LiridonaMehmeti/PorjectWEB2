@@ -42,7 +42,7 @@ if (isset($_SESSION["user_id"])) {
         <img class="leftfoto" src="/PorjectWEB2/Main/Movies.png" alt="Movies">
         <img class="foto2" src="MarMov.png" alt="hero">
         <a href="/PorjectWEB2/1Movie/movie.html" target="_blank" alt="">Check now</a>
-      
+     
     </div>
     <div class="login-box">
         <form>
