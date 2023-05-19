@@ -1,3 +1,68 @@
+<?php
+
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    $mysqli = require __DIR__ . "/database.php";
+    
+    $sql = sprintf("SELECT * FROM users
+                    WHERE email = '%s'",
+                   $mysqli->real_escape_string($_POST["email"]));
+    
+    $result = $mysqli->query($sql);
+    
+    $users = $result->fetch_assoc();
+    
+    if ($users) {
+        
+        if (password_verify($_POST["password"], $user["password_hash"])) {
+            
+            session_start();
+            
+            session_regenerate_id();
+            
+            $_SESSION["user_id"] = $users["id"];
+            
+            header("Location: main.php");
+            exit;
+        }
+    }
+    
+    $is_invalid = true;
+}
+
+?>
+
+<!-- Display the login form again if authentication fails -->
+<div class="login-box">
+        <h2>Login to you Account</h2>
+        <form method="post">
+          <div class="user-box">
+          <input type="email" name="email" id="email"
+               value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
+            <label for="email" >Enter Username</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="password" required="">
+            <label for="password">Enter Password</label>
+          </div>
+          <a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <button> Submit </button>
+          </a>
+        </form>
+      </div>
+
+<?php
+// Display error message if any
+if (isset($error)) {
+    echo "<p>Keni dhene informata te gabuara</p>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,61 +95,5 @@
           </a>
         </form>
       </div>
-
-      <?php
-       session_start();
-
-// Step 2: Validate user input
-         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-         $username = $_POST["username"];
-         $password = $_POST["password"];
-
-    // Step 3: Authenticate user
-    // Perform database query or other authentication mechanism
-    // Compare the provided username and password with the stored credentials
-
-       if ($username == "filanfisteku" && $password == "filan123") {
-        // Step 4: Start a session
-        $_SESSION["username"] = $username;
-
-        // Step 5: Redirect to the main page or authenticated area
-        header("Location: main.php");
-        exit();
-    } else {
-        // Display error message if authentication fails
-        $error = "Invalid username or password";
-    }
-}
-?>
-
-<!-- Display the login form again if authentication fails -->
-<div class="login-box">
-        <h2>Login to you Account</h2>
-        <form>
-          <div class="user-box">
-            <input type="text" name="username" required="">
-            <label>Enter Username</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="password" required="">
-            <label>Enter Password</label>
-          </div>
-          <a href="main.php">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </a>
-        </form>
-      </div>
-
-<?php
-// Display error message if any
-if (isset($error)) {
-    echo "<p>Keni dhene informata te gabuara</p>";
-}
-?>
-
 </body>
 </html>
