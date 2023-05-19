@@ -1,70 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Login Page</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='signup.css'>
-    <script src='main.js'></script>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Login Page</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='signup.css'>
+  <script src='main.js'></script>
+  <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/js/validation.js" defer></script>
 </head>
+
 <body>
+
+  <div class="signup-box">
+    <h2>SIGN UP</h2>
     
-    <div class="signup-box">
-        <h2>SIGN UP</h2>
-        <form>
-          <div class="user-box">
-          <input type="text" name="name" placeholder="Name" required>
-            <label>First name</label>
-          </div>
-          <div class="user-box">
-          <input type="text" name="lastname" placeholder="Last name" required>
-            <label>Last name</label>
-          </div>
-          <div class="user-box">
-          <input type="email" name="email" placeholder="Email" required>
-            <label>Email</label>
-          </div>
-          <div class="user-box">
-          <input type="password" name="password" placeholder="Password" required>
-            <label>Password</label>
-          </div>
-          <div class="user-box">
-          <input type="password" name="password" placeholder="Confirm password" required>
-            <label>Confirm password</label>
-          </div>
-          
-  <a href="Login.php">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Sign Up
-          </a>
-</form>
-<?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Retrieve the form data
-  $name = $_POST["Name"];
-  $lastname = $_POST["Last Name"];
-  $email = $_POST["Email"];
-  $password = $_POST["Password"];
-  $password = $_POST["Cofirm password"];
-  
+      <div class="user-box">
+      <form action="signup.php" method="post" id="signup" novalidate>
+        <input type="text" name="name" placeholder="First name" required>
+        <label for="name" >First name</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="lastname" placeholder="Last name" required>
+        <label for="lastname" >Last name</label>
+      </div>
+      <div class="user-box">
+        <input type="email" name="email" placeholder="Email" required>
+        <label for="email" >Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" placeholder="Password" required>
+        <label for="password" >Password</label>
+      </div>
 
-  // Validate the form data (you can add more validation as per your requirements)
-  if (empty($name) || empty($lastname)|| empty($email) || empty($password)|| empty($password)) {
-    echo "Please fill in all the fields.";
+      <a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <button type="submit" name="signup">Sign Up</button>      </a>
+    </form>
+  </div>
+
+  <?php
+
+if (empty($_POST["name"])) {
+    die("Name is required");
+}
+if (empty($_POST["lastname"])) {
+  die("Name is required");
+}
+
+if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+    die("Valid email is required");
+}
+
+if (strlen($_POST["password"]) < 8) {
+    die("Password must be at least 8 characters");
+}
+
+if ( ! preg_match("/[a-z]/i", $_POST["password"])) {
+    die("Password must contain at least one letter");
+}
+
+
+$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+$mysqli = require __DIR__ . "/database.php";
+
+$sql = "INSERT INTO users (name, lastname, email, password_hash)
+        VALUES (?, ?, ?,?)";
+        
+$stmt = $mysqli->stmt_init();
+
+if ( ! $stmt->prepare($sql)) {
+    die("SQL error: " . $mysqli->error);
+}
+
+$stmt->bind_param("ssss",
+                  $_POST["name"],
+                  $_POST["lastname"],
+                  $_POST["email"],
+                  $password_hash);
+                  
+if ($stmt->execute()) {
+
     header("Location: Login.php");
-    exit();
-  } else {
-    // Perform further processing (e.g., database insertion, user creation, etc.)
-    // ...
-
-    // Display a success message
-    echo "Sign up successful!";
-  }
+    exit;
+    
+} else {
+    
+    if ($mysqli->errno === 1062) {
+        die("email already taken");
+    } else {
+        die($mysqli->error . " " . $mysqli->errno);
+    }
 }
 ?>
-
