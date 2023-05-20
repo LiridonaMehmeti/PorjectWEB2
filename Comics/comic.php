@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +46,27 @@
           <a class="nav-link" href="/PorjectWEB2/Characters/characters.html">CHARACTERS</a>
         </li>
       </ul>
+	     <img src="img/profile.png" class="user-pic" onclick="toggleMenu()">
+		 <div class="sub-menu-wrap" id="subMenu" >
+			<div class="sub-menu" >
+				<div class="user-info" >
+					<img src="img/profile.png" >
+					<h1>User</h1>
+				</div>
+				<hr>
+				<a href="#" class="sub-menu-link" >
+					<img src="img/logout.png">
+					<p>Log Out</p>
+					<span></span>
+				</a>
+				
+				<a href="#" class="sub-menu-link" >
+					<img src="img/help.png">
+					<p>Help</p>
+					<span></span>
+				</a>
+			</div>
+		 </div>
     </div>
   </div>
  </nav>

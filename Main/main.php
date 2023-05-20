@@ -30,18 +30,18 @@ if (isset($_SESSION["user_id"])) {
     <div class="box">
         <img class="foto" src="/PorjectWEB2/Main/Comics.png" alt="Marvel Logo">
         <img class="hero1" src="Avengers.png" alt="hero">
-        <a href="/PorjectWEB2/Comics/comic.html" alt="">Check now</a>
+        <a href="Login.php" alt="">Check now</a>
     </div>
     <div class="rightbox">
         <img class="foto1" src="/PorjectWEB2/Main/Heores.png" alt="Heroes">
         <img class="hero1" src="heroooo.jpg" alt="hero">
-        <a href="/PorjectWEB2/Heroes/Wanda.html" target="_blank" alt="">Check now</a>
+        <a href="Login.php" target="_blank" alt="">Check now</a>
 
     </div>
     <div class="leftbox">
         <img class="leftfoto" src="/PorjectWEB2/Main/Movies.png" alt="Movies">
         <img class="foto2" src="MarMov.png" alt="hero">
-        <a href="/PorjectWEB2/1Movie/movie.html" target="_blank" alt="">Check now</a>
+        <a href="Login.php" target="_blank" alt="">Check now</a>
      
     </div>
     <div class="login-box">
