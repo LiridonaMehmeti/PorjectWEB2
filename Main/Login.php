@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" name="password" required="">
             <label for="password">Enter Password</label>
           </div>
+          <a href="../Main/Forgot Password/forgotpass.php" class="forgot-password">Forgot Password?</a><br>
           <a>
             <span></span>
             <span></span>
@@ -75,25 +76,6 @@ if (isset($error)) {
 </head>
 <body>
     
-    <div class="login-box">
-        <h2>Login to you Account</h2>
-        <form>
-          <div class="user-box">
-            <input type="text" name="" required="">
-            <label>Enter Username</label>
-          </div>
-          <div class="user-box">
-            <input type="password" name="" required="">
-            <label>Enter Password</label>
-          </div>
-          <a href="main.php">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </a>
-        </form>
-      </div>
+    
 </body>
 </html>
