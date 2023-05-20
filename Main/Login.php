@@ -32,39 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $is_invalid = true;
 }
 
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    $mysqli = require __DIR__ . "/database.php";
-
-    $sql = "SELECT * FROM users
-            WHERE id = {$_SESSION["user_id"]}";
-
-    $result = $mysqli->query($sql);
-
-    $users = $result->fetch_assoc();
-
-    // Set the session value for user information
-    $_SESSION["user_info"] = $users;
-}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <!-- Your HTML content here -->
-</body>
-
-</html>
-
 
 <!-- Display the login form again if authentication fails -->
 <div class="login-box">
