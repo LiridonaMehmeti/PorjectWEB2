@@ -98,4 +98,31 @@ if ($stmt->execute()) {
         die($mysqli->error . " " . $mysqli->errno);
     }
 }
+  
+// Check if the signup form was submitted
+if (isset($_POST['signup'])) {
+    // Perform form validation and database insertion here
+
+    // If the signup is successful, set a cookie
+    if ($stmt->execute()) {
+        // Set a cookie named "signup_success" with the value "1" that expires in 1 week
+        $cookie_name = "signup_success";
+        $cookie_value = "1";
+        $expiry_time = time() + (7 * 24 * 60 * 60); // 1 week from now
+
+        // Set the cookie
+        setcookie($cookie_name, $cookie_value, $expiry_time, '/'); // '/' makes the cookie available on the entire domain
+
+        header("Location: Login.php");
+        exit;
+    } else {
+        if ($mysqli->errno === 1062) {
+            die("email already taken");
+        } else {
+            die($mysqli->error . " " . $mysqli->errno);
+        }
+    }
+}
+
+
 ?>
