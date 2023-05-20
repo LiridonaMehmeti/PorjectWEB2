@@ -40,7 +40,7 @@
             $name = "MARVEL";  // Name of your website or yours
             $to = $getEmail;  // Email of the recipient
             $subject = "RESET PASSWORD";
-            $body = "http://localhost/PorjectWEB2/Main/Forgot%20Password/changepassword.php";
+            $body = "http://localhost/PorjectWEB2/Main/Forgot%20Password/changepassword.php?email=".urlencode($getEmail);
             $from = "lirakxhelili@shqiptar.eu";  // Your email address
             $password = "ermali";  // Your email password
 

@@ -13,10 +13,7 @@
     <div class="login-box">
         <h2>Change password</h2>
         <form method="post">
-            <div class="user-box">
-                <input type="password" name="oldPass" id="oldPass">
-                <label for="oldPass">Old Password</label>
-            </div>
+
             <div class="user-box">
                 <input type="password" name="newPass" required="">
                 <label for="newPass">New Password</label>
@@ -29,6 +26,7 @@
             <button type="submit" name="submit">Submit</button>
         </form>
     </div>
+
     <?php
     $host = "localhost";
     $username = "root";
@@ -36,31 +34,31 @@
     $database = "login_db";
 
     $connection = new mysqli($host, $username, $password, $database);
+
     if ($connection->connect_errno) {
         die("Connection error: " . $connection->connect_error);
     }
 
-    if (isset($_POST['submit'])) {
-        // Retrieve the form inputs
-        $oldPass = $_POST['oldPass'];
-        $newPass = $_POST['newPass'];
-        $confirmPass = $_POST['confirmPass'];
+    if (isset($_GET['email'])) {
+        $email = $_GET['email'];
 
-        // Validate the inputs
-        if ($newPass !== $confirmPass) {
-            echo "New password and confirm password do not match.";
-        } else {
-            // Retrieve the user's password hash from the database
-            $email = "lirak1@gmail.com"; // Replace with the actual user's email
-            $query = "SELECT password_hash FROM users WHERE email = '$email'";
-            $result = $connection->query($query);
+        if (isset($_POST['submit'])) {
+            // Retrieve the form inputs
+            $newPass = $_POST['newPass'];
+            $confirmPass = $_POST['confirmPass'];
 
-            if ($result && $result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $passwordHash = $row['password_hash'];
+            // Validate the inputs
+            if ($newPass !== $confirmPass) {
+                echo "New password and confirm password do not match.";
+            } else {
+                // Retrieve the user's password hash from the database
+                $query = "SELECT password_hash FROM users WHERE email = '$email'";
+                $result = $connection->query($query);
 
-                // Verify the old password
-                if (password_verify($oldPass, $passwordHash)) {
+                if ($result && $result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $passwordHash = $row['password_hash'];
+
                     // Hash the new password for security
                     $hashedPassword = password_hash($newPass, PASSWORD_DEFAULT);
 
@@ -72,14 +70,17 @@
                         echo "Error updating password: " . $connection->error;
                     }
                 } else {
-                    echo "Incorrect old password.";
+                    echo "User not found.";
                 }
-            } else {
-                echo "User not found.";
             }
         }
+    } else {
+        echo "Email parameter is missing in the URL.";
     }
+
     ?>
+
+
 
 
 </body>
