@@ -15,6 +15,46 @@ if (isset($_SESSION["user_id"])) {
 }
 
 ?>
+
+<?php
+session_start();
+
+if (isset($_SESSION["user_id"])) {
+    $mysqli = require __DIR__ . "/database.php";
+
+    $sql = "SELECT * FROM users
+            WHERE id = {$_SESSION["user_id"]}";
+
+    $result = $mysqli->query($sql);
+
+    $users = $result->fetch_assoc();
+
+    // Set a cookie with user information
+    $cookie_name = "user_info";
+    $cookie_value = json_encode($users);
+    $expiry_time = time() + (24 * 60 * 60); // 1 day from now
+
+    // Set the cookie
+    setcookie($cookie_name, $cookie_value, $expiry_time, '/');
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Your HTML content here -->
+</body>
+
+</html>
+
 <!DOCTYPE html>
 <html lang="en">
 
