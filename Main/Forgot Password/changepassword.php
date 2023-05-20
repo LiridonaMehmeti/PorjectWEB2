@@ -51,7 +51,7 @@
             echo "New password and confirm password do not match.";
         } else {
             // Retrieve the user's password hash from the database
-            $email = "lirak@gmail.com"; // Replace with the actual user's email
+            $email = "lirak1@gmail.com"; // Replace with the actual user's email
             $query = "SELECT password_hash FROM users WHERE email = '$email'";
             $result = $connection->query($query);
 

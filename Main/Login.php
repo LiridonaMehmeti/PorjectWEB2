@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     if ($users) {
         
-        if (password_verify($_POST["password"], $user["password_hash"])) {
+        if (password_verify($_POST["password"], $users["password_hash"])) {
             
             session_start();
             
@@ -47,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" name="password" required="">
             <label for="password">Enter Password</label>
           </div>
-          <a href="../Main/Forgot Password/forgotpass.php" class="forgot-password">Forgot Password?</a><br>
+          <a href="../Main/Forgot Password/forgotpass.php" class="forgot-password">Forgot Password?</a>
+          <a href="../Main/signup.php" class="forgot-password">Don't have an account?</a><br>
           <a>
             <span></span>
             <span></span>
