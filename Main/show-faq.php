@@ -28,7 +28,7 @@ session_start();
                             <?php } ?>
             <ul class="navigation">
                 <li><a href="#">Videos</a></li>
-                <li><a href="../1Movie/movie.html">Movies</a></li>
+                <li><a href="movies.php">Movies</a></li>
                 <li><a href="../contactus/contactus1.html">Contact us</a></li>
                 <li><a href="../Characters/characters.html">Characters</a></li>
                 <li><a href="../Games/main.html">Games</a></li>
@@ -61,7 +61,7 @@ function closeForm() {
 <?php
 
 // connect with database
-$conn = new PDO("mysql:host=localhost;dbname=login_db", "root", "lirak");
+$conn = new PDO("mysql:host=localhost:3333;dbname=login_db", "root", "");
 $sql = "CREATE TABLE IF NOT EXISTS faqs (
             id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
             question TEXT NULL,
@@ -118,7 +118,7 @@ $faqs = $statement->fetchAll();
     $sth = $conn->prepare("SELECT * FROM users WHERE id = ?");
     $sth->execute(array($id));
     $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-    if($data[0]['user_type'] == "admin"){ //check if admin user role then add the option to delete questions
+    if($data[0]['role'] == "admin"){ //check if admin user role then add the option to delete questions
  ?>
   <form method="POST" class="end" action="delete-faq.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
                             <input type="hidden" name="id" value="<?php echo $faq['id']; ?>" required />
