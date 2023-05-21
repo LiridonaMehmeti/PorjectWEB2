@@ -61,7 +61,7 @@ function closeForm() {
 <?php
 
 // connect with database
-$conn = new PDO("mysql:host=localhost;dbname=login_db", "root", "");
+$conn = new PDO("mysql:host=localhost;dbname=login_db", "root", "lirak");
 $sql = "CREATE TABLE IF NOT EXISTS faqs (
             id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
             question TEXT NULL,

@@ -1,7 +1,7 @@
 <?php
 
 // connect database
-$conn = new PDO("mysql:host=localhost;dbname=marvel", "root", "");
+$conn = new PDO("mysql:host=localhost;dbname=login_db", "root", "lirak");
 
 // check if FAQ existed
 $sql = "SELECT * FROM faqs WHERE id = ?";
