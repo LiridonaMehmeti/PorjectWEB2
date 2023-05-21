@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($users) {
         
         if (password_verify($_POST["password"], $users["password_hash"])) {
-            
-            session_regenerate_id();
+            session_start();   
+            //session_regenerate_id();
             
             $_SESSION["user_id"] = $users["id"];
             $_SESSION['name'] = $num['name'];
