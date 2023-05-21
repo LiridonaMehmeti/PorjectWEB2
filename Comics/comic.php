@@ -54,16 +54,23 @@
 					<h1>User</h1>
 				</div>
 				<hr>
-				<a href="#" class="sub-menu-link" >
+		
+				<a href="/PorjectWEB2/Comics/profile.php" class="sub-menu-link" >
+					<img src="img/profile.png">
+					<p>Edit Profile</p>
+					<span></span>
+				</a>
+				
+				<a href="/PorjectWEB2/Comics/aboutus.php" class="sub-menu-link" >
+					<img src="img/help.png">
+					<p>About Us</p>
+					<span></span>
+				</a>
+					<a href="/PorjectWEB2/Main/Login.php" class="sub-menu-link" >
 					<img src="img/logout.png">
 					<p>Log Out</p>
 					<span></span>
 				</a>
-				
-				<a href="#" class="sub-menu-link" >
-					<img src="img/help.png">
-					<p>Help</p>
-					<span></span>
 				</a>
 			</div>
 		 </div>

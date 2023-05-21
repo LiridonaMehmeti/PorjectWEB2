@@ -63,12 +63,13 @@ nav ul li a{
 
 .sub-menu-wrap{
     position: absolute;
-    top: 100%;
+    top: 60px;
     right: 10%;
     width: 320px;
     max-height: 0px;
     overflow: hidden;
 
+    z-index: 9999;
 }
 .sub-menu-wrap.open-menu{
     max-height: 400px;
@@ -100,3 +101,9 @@ nav ul li a{
 .sub-menu-link:hover p{
     font-weight: 600;
 }
+
+
+
+
+
+  
