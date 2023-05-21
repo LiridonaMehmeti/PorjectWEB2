@@ -13,8 +13,9 @@
 <body>
     <div class="login-box">
 <form method="POST" >
+<input type="hidden" name="userID" value="123">
           <div class="user-box">
-            <input type="text" name="name" id="name" required="">
+          <input type="text" name="name" id="name" required="">
             <label for="name" >Name:</label>
           </div>
           <div class="user-box">
@@ -26,8 +27,8 @@
             <label for="lastname">Last Name:</label>
           </div>
           <div class="user-box">
-            <input type="password" name="current_password" id="current_password" required="">
-            <label for="current_password">Password</label>
+            <input type="password" name="password" id="password" required="">
+            <label for="password">Password</label>
           </div>
           <button type="submit" name="update_profile">Update Profile</button>
 </form>
@@ -38,90 +39,45 @@
 
 
 <?php
+if(isset($_POST['update_profile'])) 
+    // Database connection configuration
+    $hostname = 'localhost';  // Replace with your database hostname
+    $username = 'root';  // Replace with your database username
+    $password = '1250981453';  // Replace with your database password
+    $database = 'login_db';  // Replace with your database name
 
-if (empty($_POST["name"])) {
-    die("Name is required");
-}
-if (empty($_POST["lastname"])) {
-  die("Name is required");
-}
+    // Create a connection
+    $conn = new mysqli($hostname, $username, $password, $database);
 
-if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    die("Valid email is required");
-}
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-if (strlen($_POST["current_password"]) < 8) {
-    die("Password must be at least 8 characters");
-}
+    // Assuming you have already established a database connection
+    
+    // Check if the form is submitted
+    if (isset($_POST['update_profile'])) {
+        // Retrieve form data
+        $userID = mysqli_real_escape_string($conn, $_POST['userID']);
+       //$name = mysqli_real_escape_string($conn, $_POST['name']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+       // $password = mysqli_real_escape_string($conn, $_POST['password']);
+      
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-if ( ! preg_match("/[a-z]/i", $_POST["current_password"])) {
-    die("Password must contain at least one letter");
-}
-if (strlen($_POST["new_password"]) < 8) {
-    die("Password must be at least 8 characters");
-}
-
-if ( ! preg_match("/[a-z]/i", $_POST["new_password"])) {
-    die("Password must contain at least one letter");
-}
-
-$hostname = 'localhost';
-$username = 'root';
-$password = '1250981453';
-$database = 'login_db';
-
-// Create a connection
-$connection = new mysqli($hostname, $username, $password, $database);
-
-// Check connection
-if ($connection->connect_error) {
-    die('Connection failed: ' . $connection->connect_error);
-}
-
-// Retrieve the user's existing profile data from the database based on a user ID or username
-$userId = 1; // Replace with the actual user ID
-$query = "SELECT * FROM users WHERE Id = $userId"; // Modify the query based on your database structure
-$result = $connection->query($query);
-
-// Check if the query was successful and the user exists
-if ($result && $result->num_rows > 0) {
-    // Fetch the user data
-    $user = $result->fetch_assoc();
-    $name = $user['name'];
-    $email = $user['email'];
-    $lastname = $user['lastname'];
-    $current_password = $user['current_password'];
+        // Update the user profile in the database
+        $query = "UPDATE users SET  email='$email', lastname='$lastname', password_hash='$hashedPassword' WHERE ID='$userID'";
+        if (mysqli_query($conn, $query)) {
+            echo "Profile updated successfully.";
+        } else {
+            echo "Error updating profile: " . mysqli_error($conn);
+        }
+    }
+    ?>
+    
 
 
-    // Free the result set
-} else {
-    // Handle the case when the query fails or no user data found
-    echo "Failed to retrieve user data";
-    $connection->close();
-    exit();
-}
 
-// Update the user's profile information in the database
-$updateQuery = "UPDATE users SET name = ?, email = ? , lastname= ?, current_password= ? WHERE ID = $userId"; // Modify the query based on your database structure
-
-$stmt = $connection->prepare($updateQuery);
-
-if (!$stmt) {
-    die("SQL error: " . $connection->error);
-}
-
-$stmt->bind_param("ssss", $_POST["name"], $_POST["email"], $_POST["lastname"],$_POST["current_password"]);
-
-if ($stmt->execute()) {
-    // Profile information updated successfully
-    header("Location: Login.php");
-    echo "Profile updated successfully";
-} else {
-    // Error occurred while updating profile information
-    echo "Error updating profile: " . $connection->error;
-}
-
-// Close the connection
-$connection->close();
-?>
 
