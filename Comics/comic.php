@@ -62,7 +62,7 @@
 				</div>
 				<hr>
 		
-				<a href="/PorjectWEB2/Comics/profile.php" class="sub-menu-link" >
+				<a href="/PorjectWEB2/Comics/edit.php" class="sub-menu-link" >
 					<img src="img/profile.png">
 					<p>Edit Profile</p>
 					<span></span>
