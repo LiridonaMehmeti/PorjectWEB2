@@ -1,37 +1,21 @@
-<?php
+<?php session_start();
+include_once 'config.php';
+// Code for login
+if (isset($_POST['login'])) {
+    $password = $_POST['password'];
+    $dec_password = $password;
+    $useremail = $_POST['email'];
+    $ret = mysqli_query($db, "SELECT ID,name FROM users WHERE email='$useremail' and password_hash='$dec_password'");
+    $num = mysqli_fetch_array($ret);
+    if ($num > 0) {
+        $_SESSION['user_id'] = $num['ID'];
+        $_SESSION['name'] = $num['name'];
+        header("location:show-faq.php");
 
-$is_invalid = false;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    $mysqli = require __DIR__ . "/database.php";
-    
-    $sql = sprintf("SELECT * FROM users
-                    WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email"]));
-    
-    $result = $mysqli->query($sql);
-    
-    $users = $result->fetch_assoc();
-    
-    if ($users) {
-        
-        if (password_verify($_POST["password"], $users["password_hash"])) {
-            
-            session_start();
-            
-            session_regenerate_id();
-            
-            $_SESSION["user_id"] = $users["id"];
-            
-            header("Location: main.php");
-            exit;
-        }
+    } else {
+        echo "<script>alert('Invalid username or password');</script>";
     }
-    
-    $is_invalid = true;
 }
-
 ?>
 
 <!-- Display the login form again if authentication fails -->
@@ -54,17 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <span></span>
             <span></span>
             <span></span>
-            <button> Submit </button>
+            <button name="login" type="submit"> Submit </button>
           </a>
         </form>
       </div>
 
-<?php
-// Display error message if any
-if (isset($error)) {
-    echo "<p>Keni dhene informata te gabuara</p>";
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
