@@ -12,6 +12,12 @@ if (isset($_SESSION["user_id"])) {
     $result = $mysqli->query($sql);
     
     $users = $result->fetch_assoc();
+
+    
+    $cookie_name = "user_id";
+    $cookie_value = $users["id"];
+    $cookie_expiration = time() + (86400 * 30); // 30 days
+    setcookie($cookie_name, $cookie_value, $cookie_expiration, "/");
 }
 
 ?>
