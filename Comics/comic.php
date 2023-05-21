@@ -25,25 +25,32 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+	<!-- <li><a href="#">Videos</a></li>
+                <li><a href="/PorjectWEB2/1Movie/movie.html">Movies</a></li>
+                <li><a href="../Comics/comic.php">Comics</a></li>
+                <li><a href="../Main/movies.php">Shop</a></li>
+                <li><a href="/PorjectWEB2/Characters/characters.html">Characters</a></li>
+                <li><a href="/PorjectWEB2/Games/main.html">Games</a></li>
+                <li><a href="../Main/show-faq.php">FAQ</a></li> -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/PorjectWEB2/Main/main.php">HOME</a>
+          <a class="nav-link" href="../Main/main.php">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">VIDEOS</a>
         </li>
 		<li class="nav-item">
-          <a class="nav-link" href="/PorjectWEB2/1Movie/movie.html">MOVIES</a>
+          <a class="nav-link" href="../1Movie/movie.html">MOVIES</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/PorjectWEB2/contactus/contactus1.html">CONTACT US</a>
+          <a class="nav-link" href="../Main/movies.php">SHOP</a>
         </li>
 		<li class="nav-item">
-          <a class="nav-link" href="/PorjectWEB2/Heroes/Wanda.html">HEROES</a>
+          <a class="nav-link" href="../Heroes/Wanda.html">HEROES</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/PorjectWEB2/Characters/characters.html">CHARACTERS</a>
+		<li class="nav-item">
+          <a class="nav-link" href="../Main/show-faq.php">FAQ</a>
         </li>
       </ul>
 	     <img src="img/profile.png" class="user-pic" onclick="toggleMenu()">

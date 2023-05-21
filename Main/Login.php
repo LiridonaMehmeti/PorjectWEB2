@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!-- Display the login form again if authentication fails -->
+
 <div class="login-box">
   <h2>Login to you Account</h2>
   <form method="post">

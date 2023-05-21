@@ -28,11 +28,13 @@ $result = mysqli_query($mysqli, $sql);
                 <div></div>
             </div>
             <ul class="navigation">
-                <li><a href="#">Videos</a></li>
-                <li><a href="/PorjectWEB2/1Movie/movie.html">Movies</a></li>
-                <li><a href="/PorjectWEB2/contactus/contactus1.html">Contact us</a></li>
-                <li><a href="/PorjectWEB2/Characters/characters.html">Characters</a></li>
-                <li><a href="/PorjectWEB2/Games/main.html">Games</a></li>
+            <li><a href="#">Videos</a></li>
+                <li><a href="../1Movie/movie.html">Movies</a></li>
+                <li><a href="../Comics/comic.php">Comics</a></li>
+                <li><a href="../Main/movies.php">Shop</a></li>
+                <li><a href="../Characters/characters.html">Characters</a></li>
+                <li><a href="../Games/main.html">Games</a></li>
+                <li><a href="../Main/show-faq.php">FAQ</a></li>
 
             </ul>
         </header>

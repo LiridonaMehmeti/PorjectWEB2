@@ -28,13 +28,14 @@ session_start();
                             <?php } ?>
             <ul class="navigation">
                 <li><a href="#">Videos</a></li>
-                <li><a href="movies.php">Movies</a></li>
-                <li><a href="../contactus/contactus1.html">Contact us</a></li>
+                <li><a href="../1Movie/movie.html">Movies</a></li>
+                <li><a href="movies.php">Shop</a></li>
                 <li><a href="../Characters/characters.html">Characters</a></li>
                 <li><a href="../Games/main.html">Games</a></li>
 
             </ul>
         </header>
+
 
 <button class="open-button" onclick="openForm()">Add a New Question</button>
 
