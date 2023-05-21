@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -17,21 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         if (password_verify($_POST["password"], $users["password_hash"])) {
             
-            session_start();
-            
             session_regenerate_id();
             
             $_SESSION["user_id"] = $users["id"];
             $_SESSION['name'] = $num['name'];
             
-            header("location:show-faq.php");
+            // Set a cookie named "user_id" with the value of the user's ID that expires in 1 day
+            $cookie_name = "user_id";
+            $cookie_value = $users["id"];
+            $cookie_expiration = time() + (24 * 60 * 60); // 1 day
+            setcookie($cookie_name, $cookie_value, $cookie_expiration, "/");
+            
+            header("location: show-faq.php");
             exit;
         }
     }
     
     $is_invalid = true;
 }
-
 ?>
 
 <!-- Display the login form again if authentication fails -->

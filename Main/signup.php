@@ -106,6 +106,7 @@ if (isset($_POST['signup'])) {
     // If the signup is successful, set a cookie
     if ($stmt->execute()) {
         // Set a cookie named "signup_success" with the value "1" that expires in 1 week
+        
         $cookie_name = "signup_success";
         $cookie_value = "1";
         $expiry_time = time() + (7 * 24 * 60 * 60); // 1 week from now
