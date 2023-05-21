@@ -59,9 +59,41 @@ if (isset($_SESSION["user_id"])) {
                 <span></span>
                 Log in
             </a>
+</div>
+            
+        <img src="img/profile.png" class="user-pic" onclick="toggleMenu()">
+		 <div class="sub-menu-wrap" id="subMenu" >
+			<div class="sub-menu" >
+				<div class="user-info" >
+					<img src="img/profile.png" >
+					<h1>User</h1>
+				</div>
+				<hr>
+		
+				<a href="/PorjectWEB2/Comics/profile.php" class="sub-menu-link" >
+					<img src="img/profile.png">
+					<p>Edit Profile</p>
+					<span></span>
+				</a>
+				
+				<a href="/PorjectWEB2/Comics/aboutus.php" class="sub-menu-link" >
+					<img src="img/help.png">
+					<p>About Us</p>
+					<span></span>
+				</a>
+					<a href="/PorjectWEB2/Main/Login.php" class="sub-menu-link" >
+					<img src="img/logout.png">
+					<p>Log Out</p>
+					<span></span>
+				</a>
+            </div>
+    
 
         </form>
+        
     </div>
+    <script src="main.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
 </html>

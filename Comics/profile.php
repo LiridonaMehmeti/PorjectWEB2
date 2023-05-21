@@ -40,39 +40,31 @@
 
 <?php
 if(isset($_POST['update_profile'])) 
-    // Database connection configuration
-    $hostname = 'localhost';  // Replace with your database hostname
-    $username = 'root';  // Replace with your database username
-    $password = '1250981453';  // Replace with your database password
-    $database = 'login_db';  // Replace with your database name
+
+
+    include "../Main/database.php";
 
     // Create a connection
-    $conn = new mysqli($hostname, $username, $password, $database);
-
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
+    
     // Assuming you have already established a database connection
     
     // Check if the form is submitted
     if (isset($_POST['update_profile'])) {
         // Retrieve form data
-        $userID = mysqli_real_escape_string($conn, $_POST['userID']);
+        $userID = mysqli_real_escape_string($mysqli, $_POST['userID']);
        //$name = mysqli_real_escape_string($conn, $_POST['name']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+        $email = mysqli_real_escape_string($mysqli, $_POST['email']);
+        $lastname = mysqli_real_escape_string($mysqli, $_POST['lastname']);
        // $password = mysqli_real_escape_string($conn, $_POST['password']);
       
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Update the user profile in the database
         $query = "UPDATE users SET  email='$email', lastname='$lastname', password_hash='$hashedPassword' WHERE ID='$userID'";
-        if (mysqli_query($conn, $query)) {
+        if (mysqli_query($mysqli, $query)) {
             echo "Profile updated successfully.";
         } else {
-            echo "Error updating profile: " . mysqli_error($conn);
+            echo "Error updating profile: " . mysqli_error($mysqli);
         }
     }
     ?>

@@ -21,7 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             //session_regenerate_id();
             
             $_SESSION["user_id"] = $users["id"];
-            $_SESSION['name'] = $num['name'];
+            $_SESSION['name'] = $users['name'];
+            $_SESSION['lastname'] = $users['lastname'];
+            $_SESSION['number'] = $users['number'];
+            $_SESSION['email'] = $users['email'];
+            $_SESSION['username'] = $users['username'];
             
             // Set a cookie named "user_id" with the value of the user's ID that expires in 1 day
             $cookie_name = "user_id";
